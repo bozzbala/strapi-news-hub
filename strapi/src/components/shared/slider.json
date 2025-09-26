@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_sliders",
+  "info": {
+    "displayName": "Slider",
+    "icon": "landscape",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "files": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
