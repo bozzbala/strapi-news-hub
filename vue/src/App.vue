@@ -1,26 +1,22 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App Tima"/>
-</template>
+<script setup>
+import { ref, onMounted } from "vue";
+import { getCollection } from "@/utils/api.js";
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+const pages = ref([]);
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+onMounted(async () => {
+  // получить список страниц
+  pages.value = await getCollection("articles");
+
+});
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<template>
+  <div>
+    <h2>Список страниц:</h2>
+    <pre>{{ pages }}</pre>
+
+    <h2>Одна страница:</h2>
+    <pre></pre>
+  </div>
+</template>
